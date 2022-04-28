@@ -1,0 +1,14 @@
+.header-container{
+    padding: 1.8rem;
+    display: flex;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+}

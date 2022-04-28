@@ -1,0 +1,42 @@
+.data-fetch-button{
+    display: flex;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    letter-spacing: 0.18rem;
+    font-size: 1.2rem !important;
+    margin-top: 1.2rem;
+    height: 3rem !important;
+}
+.content-container{
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.user-card-container{
+    margin: auto;
+    margin-top: 1.8rem;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    width: 75%;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.user-card{
+    margin-bottom: 1rem !important;
+    position: absolute;
+}
+.user-card:hover{
+    box-shadow: 6px 6px rgb(221, 221, 221);
+    transition: 0.3s;
+    border-radius: 15px;
+    background-color: rgb(243, 237, 237);
+    cursor: pointer;
+}
+.status-badge{
+    position: relative;
+    right: 18px !important;
+}
