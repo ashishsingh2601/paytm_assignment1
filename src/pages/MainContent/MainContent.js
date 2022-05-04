@@ -3,12 +3,21 @@ import {Button, Card, Badge} from 'antd';
 import axios from 'axios';
 import './MainContent.css';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFetchedUsers } from '../../redux/actions/userActions';
+
+
 
 const url = 'https://gorest.co.in/public/v2/users';
 
 const MainContent = () => {
 
-    const [users, setUsers] = useState([]);
+    const users = useSelector((state) => state.allUsers.users);
+    console.log(users);
+    const dispatch = useDispatch();
+
+
+    // const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const handleUserFetch = () =>{
@@ -17,7 +26,7 @@ const MainContent = () => {
             .then(response => {
                 const users = response.data;
                 console.log(users);
-                setUsers(users);
+                dispatch(setFetchedUsers(users));
                 setLoading(false);
             }).catch((e)=>{
                 console.log(e);

@@ -3,29 +3,41 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { Card } from 'antd';
 import './SpecificUser.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedUser } from '../../redux/actions/userActions';
+
+
 
 const SpecificUser = () => {
+
+  const dispatch = useDispatch();
 
   const { id } = useParams();
 
   const url = `https://gorest.co.in/public/v2/users/${id}/posts`;
 
-  const [user, setUser] = useState([]);
+  const user = useSelector((state) => state.allUsers.user);
+
+  // const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
 
 
-  useEffect(()=>{
+  const fetchIndividualUser = () => {
     setLoading(true);
     axios.get(url)
       .then((response) => {
         const user = response.data;
         console.log(user);
-        setUser(user);
+        dispatch(setSelectedUser(user));
         setLoading(false);
       })
       .catch(e => {
         console.log(e);
       })
+  }
+
+  useEffect(()=>{
+    fetchIndividualUser();
   }, []);
 
   return (
